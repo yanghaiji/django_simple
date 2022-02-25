@@ -19,7 +19,8 @@
 > 
 > Superuser created successfully.
 > 然后我们需要修改应用里面的 管理员 配置文件 common/admin.py，注册我们定义的model类。这样Django才会知道
-
+> 
+>这里我将密码设置成了12345678
 ```python
 from django.contrib import admin
 
