@@ -4,6 +4,7 @@ from django.http import HttpResponse, JsonResponse
 # from django_simple.common.models import Customer
 # from .. import common
 from common.models import Customer
+from sales.comstomer.customer_action import query_customer_all, save_customer, modify_customer_by_id, del_customer_by_id
 
 
 def hello_django(request):
@@ -35,24 +36,27 @@ def list_customers(request):
     return HttpResponse(retStr)
 
 
+"""
+ 只做简单的调用入口，实现放在 action里,也可以做一下简单的参数校验
+ 
+ 测试路径
+ GET /sales/api?action=query_customer
+"""
+
+
 def query_customer(request):
-    # 返回一个 QuerySet 对象 ，包含所有的表记录
-    qs = Customer.objects.values()
-
-    # 将 QuerySet 对象 转化为 list 类型
-    # 否则不能 被 转化为 JSON 字符串
-    ret_list = list(qs)
-
-    return JsonResponse({'ret': 0, 'retlist': ret_list})
+    return JsonResponse({'ret': 0, 'retlist': query_customer_all(request)})
 
 
 def add_customer(request):
-    pass
+    return JsonResponse({'ret': 0, 'id': save_customer(request)})
 
 
 def modify_customer(request):
-    pass
+    modify_customer_by_id(request)
+    return JsonResponse({'ret': 0})
 
 
 def del_customer(request):
-    pass
+    del_customer_by_id(request)
+    return JsonResponse({'ret': 0})

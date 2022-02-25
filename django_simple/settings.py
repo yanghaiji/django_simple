@@ -82,6 +82,19 @@ DATABASES = {
     }
 }
 
+# mysql 配置
+# DATABASES = {
+#   'default': {
+#       'ENGINE': 'django.db.backends.mysql',
+#       'NAME': '',   # 数据库名
+#       'USER': '',    # 数据库 用户名
+#       'PASSWORD': '',# 数据库 用户密码
+#       'HOST': '', # 数据库服务主机名
+#       'PORT': '',      # 数据库服务端口
+#       'CONN_MAX_AGE': 0
+#   }
+# }
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 

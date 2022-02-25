@@ -16,12 +16,12 @@ Including another URLconf
 from django.urls import path
 
 from sales import views
-from sales import costomer
+from sales import customer
 
 urlpatterns = [
     # 在前面一定义前缀，在这里无需定义
     path('django', views.hello_django),
     path('python', views.hello_python),
     path('customers', views.list_customers),
-    path('api', costomer.dispatcher)
+    path('api', customer.dispatcher)
 ]
